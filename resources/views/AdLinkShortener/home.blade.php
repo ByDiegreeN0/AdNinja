@@ -43,7 +43,7 @@
                   <div class="full">
                      <div class="center-desk">
                         <div class="logo">
-                           <a href="index.html"><img src="images/logo.png" alt="#" /></a>
+                           <a href="{{ route('home') }}">AdNinja</a>
                         </div>
                      </div>
                   </div>
@@ -84,7 +84,7 @@
                <div class="text-bg">
                   <h1>AdNinja</h1>
                   <span>El mejor acortador de links que te paga por compartir contenido por inernet</span>
-                  <a href="#">Registrarse</a>
+                  <a href="{{ route('register') }}">Registrarse</a>
                </div>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 padding_lert2">

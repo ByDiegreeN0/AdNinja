@@ -46,4 +46,9 @@ class User extends Authenticatable
     public function adminlte_desc(){
         return 'User';
     }
+
+    public function links() {
+        return $this->hasMany(tbl_links::class, 'user_id');
+
+    }
 }

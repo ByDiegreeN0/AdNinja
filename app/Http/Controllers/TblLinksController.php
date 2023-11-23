@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\tbl_links;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Psy\VarDumper\Dumper;
 
 class TblLinksController extends Controller
 {
@@ -12,11 +15,12 @@ class TblLinksController extends Controller
      */
     public function index()
     {
-        $LinksData = tbl_links::all();
-        return view('dashboard.links', compact('LinksData'));
         
+        $user = Auth::user();
+        $links = $user->links;    
+       
+        return view('dashboard.links', compact('links'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -28,11 +32,43 @@ class TblLinksController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
-        $LinksData = request()->except('_token');
-        tbl_links::insert($LinksData);
-        return response()->json($LinksData);
+
+        $user = Auth::user();
+
+        $linksData = $request->except('_token');
+        $linksData['user_id'] = $user->id;
+
+        $newLink = tbl_links::create($linksData);
+        $linkShortener = $this->createShortUrl();
+        $newLink->url_new_url = $linkShortener;
+        $newLink->save();
+    
+        return redirect()->back()->with('success', 'Link added successfully');
+    }
+
+
+    private function createShortUrl(){
+        
+        $linkShortener = Str::random(15);
+        $ShortUrl = route('redirect', ['id' => $linkShortener]);
+
+        return $ShortUrl;
+
+    }
+
+    public function ShowAdvertising($url_id){
+        $link = tbl_links::where('url_new_url', $url_id)->first();
+        
+        if($link){
+            $link->url_views++; // no funcions
+            $link->save();
+
+        }
+
+        return view('AdLinkShortener.advertising', ['url_new_url' => $url_id]);
     }
 
     /**
@@ -48,7 +84,7 @@ class TblLinksController extends Controller
      */
     public function edit(tbl_links $tbl_links)
     {
-        //
+        // no se usa actualmente
     }
 
     /**
@@ -56,7 +92,7 @@ class TblLinksController extends Controller
      */
     public function update(Request $request, tbl_links $tbl_links)
     {
-        //
+        // no se usa actualmente
     }
 
     /**
@@ -65,6 +101,6 @@ class TblLinksController extends Controller
     public function destroy($url_id)
     {
         tbl_links::destroy($url_id);
-        return redirect('dashboard.links');
+        return redirect('dashboard/links');
     }
 }

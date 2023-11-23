@@ -64,7 +64,7 @@ return [
     */
 
     'logo' => '<b>AdNinja</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'assets/icon/AdNinja.ico',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -109,7 +109,7 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'assets/icon/AdNinja.ico',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -294,7 +294,7 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
         [
             'type'         => 'fullscreen-widget',
@@ -319,6 +319,13 @@ return [
             'icon' => 'fas fa-fw fa-link',
             'label' => '10',
             'label_color' => 'success',
+        ],
+
+        [
+            'text' => 'Referrals',
+            'route' => 'referrals',
+            'icon' => 'fas fa-fw fa-user',
+
         ],
 
         [
@@ -430,7 +437,7 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'location' => 'https://cdn.jsdelivr.net/npm/sweetalert2@11',
                 ],
             ],
         ],

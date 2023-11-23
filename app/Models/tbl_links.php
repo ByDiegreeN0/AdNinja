@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class tbl_links extends Model
 {
 
-    protected $fillable = ['url_name', 'url_old_url', 'url_new_url'];
+    protected $fillable = ['url_name', 'url_old_url', 'url_new_url', 'user_id'];
 
     protected $primaryKey = 'url_id';
+
+    public function user(){
+        return $this->belongsTo(User::class, 'id');
+    }
     use HasFactory;
 }
