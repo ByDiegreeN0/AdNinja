@@ -44,7 +44,7 @@ Route::get('/dashboard/referrals', [App\Http\Controllers\DashboardController::cl
 // CRUD for LINKS
 
 Route::post('/dashboard/links', [App\Http\Controllers\TblLinksController::class, 'store'])->middleware('auth');
-Route::delete('/dashboard/links/{url_id}', [App\Http\Controllers\TblLinksController::class, 'destroy'])->middleware('auth');
+Route::delete('/dashboard/links/{short_url}', [App\Http\Controllers\TblLinksController::class, 'destroy'])->middleware('auth');
 
 
 // Shortener Routes

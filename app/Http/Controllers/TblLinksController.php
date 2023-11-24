@@ -15,10 +15,10 @@ class TblLinksController extends Controller
      */
     public function index()
     {
-        
+
         $user = Auth::user();
-        $links = $user->links;    
-       
+        $links = $user->links;
+
         return view('dashboard.links', compact('links'));
     }
     /**
@@ -45,30 +45,37 @@ class TblLinksController extends Controller
         $linkShortener = $this->createShortUrl();
         $newLink->url_new_url = $linkShortener;
         $newLink->save();
-    
+
         return redirect()->back()->with('success', 'Link added successfully');
     }
 
 
-    private function createShortUrl(){
-        
+    private function createShortUrl()
+    {
+
         $linkShortener = Str::random(15);
         $ShortUrl = route('redirect', ['id' => $linkShortener]);
 
         return $ShortUrl;
-
     }
 
-    public function ShowAdvertising($url_id){
-        $link = tbl_links::where('url_new_url', $url_id)->first();
-        
-        if($link){
-            $link->url_views++; // no funcions
-            $link->save();
+    public function ShowAdvertising($short_url)
+    {
 
+        $short_url_key = last(explode('/', $short_url));
+
+        $link = tbl_links::where('url_new_url', 'like',  "%{$short_url_key}%")->first();
+
+        if ($link) {
+            $link->url_views++;
+            $link->save();
+        } else {
+            return abort(404);
         }
 
-        return view('AdLinkShortener.advertising', ['url_new_url' => $url_id]);
+        
+
+        return view('AdLinkShortener.advertising', ['url_new_url' => $short_url]);
     }
 
     /**
