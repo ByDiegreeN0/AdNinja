@@ -65,6 +65,7 @@ class TblLinksController extends Controller
         $short_url_key = last(explode('/', $short_url));
 
         $link = tbl_links::where('url_new_url', 'like',  "%{$short_url_key}%")->first();
+        
 
         if ($link) {
             $link->url_views++;
