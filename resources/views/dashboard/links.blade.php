@@ -12,7 +12,7 @@
 @section('content')
 
 <div>
-  <canvas id="myChart" height="60"></canvas>
+  <canvas id="myChart" height="260"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -36,7 +36,9 @@
         y: {
           beginAtZero: true
         }
-      }
+      },
+      maintainAspectRatio: false, 
+      responsive: true 
     }
   });
 </script>

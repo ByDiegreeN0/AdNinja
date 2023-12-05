@@ -32,7 +32,7 @@
 </div>
 
 <div>
-  <canvas id="myChart" height="100"></canvas>
+  <canvas id="myChart" height="400"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -56,7 +56,9 @@
         y: {
           beginAtZero: true
         }
-      }
+      },
+      maintainAspectRatio: false, 
+      responsive: true
     }
   });
 </script>

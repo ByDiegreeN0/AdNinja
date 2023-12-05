@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\tbl_links;
+use App\Models\Tbl_Monthly_link_views;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Psy\VarDumper\Dumper;
+use App\Models\Tbl_daily_link_views;
 
 class TblLinksController extends Controller
 {
@@ -54,7 +56,7 @@ class TblLinksController extends Controller
     {
 
         $linkShortener = Str::random(15);
-        $ShortUrl = route('redirect', ['id' => $linkShortener]);
+        $ShortUrl = route('redirect', ['short_url' => $linkShortener]);
 
         return $ShortUrl;
     }
@@ -70,6 +72,10 @@ class TblLinksController extends Controller
         if ($link) {
             $link->url_views++;
             $link->save();
+
+            Tbl_daily_link_views::RecordView($link->url_id); // Registra visitas diarias
+            Tbl_Monthly_link_views::RecordMonthlyViews($link->url_id); // Registra visitas mensuales
+
         } else {
             return abort(404);
         }
