@@ -21,13 +21,16 @@
 <script>
   const ctx = document.getElementById('myChart');
 
+  const labels = @json($labels);
+  const data = @json($data);
+
   new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      labels: labels,
       datasets: [{
         label: '# of Views',
-        data: [12, 19, 3, 5, 2, 3],
+        data: data,
         borderWidth: 1
       }]
     },

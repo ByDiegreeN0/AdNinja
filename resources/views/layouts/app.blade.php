@@ -16,7 +16,7 @@
     <!-- Responsive-->
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
     <!-- fevicon -->
-    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <link rel="icon" href="{{ asset('assets/icon/AdNinja.ico') }}" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
 
@@ -57,12 +57,12 @@
 
                                     <a href="{{ route('register') }}">
                                         <li class="login_btn nav-link" href="#">
-                                            Registrarse
+                                            Sign Up
                                         </li>
                                     </a>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">Iniciar Sesion</a>
+                                        <a class="nav-link" href="{{ route('login') }}">Sign In</a>
                                     </li>
 
                                 </ul>

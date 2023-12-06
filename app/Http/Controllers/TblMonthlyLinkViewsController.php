@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tbl_daily_link_views;
 use App\Models\Tbl_Monthly_link_views;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class TblMonthlyLinkViewsController extends Controller
 {
@@ -14,6 +17,8 @@ class TblMonthlyLinkViewsController extends Controller
     {
         //
     }
+
+
 
     /**
      * Show the form for creating a new resource.

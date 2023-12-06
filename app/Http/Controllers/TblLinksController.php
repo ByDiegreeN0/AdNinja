@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\tbl_links;
-use App\Models\Tbl_Monthly_link_views;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Psy\VarDumper\Dumper;
 use App\Models\Tbl_daily_link_views;
+use App\Models\Tbl_Monthly_link_views;
+use Illuminate\Support\Facades\DB;
 
 class TblLinksController extends Controller
 {
@@ -21,8 +22,23 @@ class TblLinksController extends Controller
         $user = Auth::user();
         $links = $user->links;
 
-        return view('dashboard.links', compact('links'));
+        $LinksChartData = DB::table('tbl_links')
+        ->join('tbl_daily_link_views', 'tbl_links.url_id', '=', 'tbl_daily_link_views.url_id')
+        ->where('user_id', $user->id)
+        ->select(DB::raw('DATE(tbl_daily_link_views.created_at) as date'),  
+        DB::raw('SUM(tbl_daily_link_views.daily_views) as total_views'))
+        ->groupBy(DB::raw('DATE(tbl_daily_link_views.created_at)'))
+        ->orderBy('date')
+        ->get();
+
+        $labels = $LinksChartData->pluck('date')->toArray();
+        $data = $LinksChartData->pluck('total_views')->toArray();
+
+
+        return view('dashboard.links', compact('links', 'labels', 'data'));
     }
+
+  
     /**
      * Show the form for creating a new resource.
      */
@@ -55,7 +71,7 @@ class TblLinksController extends Controller
     private function createShortUrl()
     {
 
-        $linkShortener = Str::random(15);
+        $linkShortener = Str::random(20);
         $ShortUrl = route('redirect', ['short_url' => $linkShortener]);
 
         return $ShortUrl;

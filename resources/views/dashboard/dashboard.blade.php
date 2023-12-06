@@ -31,23 +31,28 @@
   </div>
 </div>
 
+<h3>Monthly Views</h3>
+
+
 <div>
   <canvas id="myChart" height="400"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-
 <script>
   const ctx = document.getElementById('myChart');
+
+  const labels = @json($labels);
+  const data = @json($data);
 
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      labels: labels,
       datasets: [{
         label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        data: data,
         borderWidth: 1
       }]
     },

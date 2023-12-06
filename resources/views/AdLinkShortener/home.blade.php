@@ -20,7 +20,7 @@
    <!-- Responsive-->
    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
    <!-- fevicon -->
-   <link rel="icon" href="images/fevicon.png" type="image/gif" />
+   <link rel="icon" href="{{ asset('assets/icon/AdNinja.ico') }}" type="image/gif" />
    <!-- Scrollbar Custom CSS -->
    <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
    <!-- Tweaks for older IEs-->
@@ -58,12 +58,12 @@
 
                           <a href="{{ route('register') }}">
                            <li class="login_btn nav-link"  href="#">
-                              Registrarse
+                              Sign Up
                            </li>
                           </a>
 
                            <li class="nav-item">
-                              <a class="nav-link" href="{{ route('login') }}">Iniciar Sesion</a>
+                              <a class="nav-link" href="{{ route('login') }}">Sign In</a>
                            </li>
 
                         </ul>
@@ -83,8 +83,8 @@
             <div class="col-xl-6 col-lg-6 col-md-6 ">
                <div class="text-bg">
                   <h1>AdNinja</h1>
-                  <span>El mejor acortador de links que te paga por compartir contenido por inernet</span>
-                  <a href="{{ route('register') }}">Registrarse</a>
+                  <span>The best link shortener that pays you for sharing content online.</span>
+                  <a href="{{ route('register') }}">Register Now</a>
                </div>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 padding_lert2">
@@ -103,9 +103,10 @@
          <div class="row">
             <div class="col-md-10 offset-md-1">
                <div class="titlepage">
-                  <span>Sobre Nosotros</span>
-                  <h2>Acortador de enlaces en linea</h2>
-                  <p>En <strong>AdNinja</strong>, estamos dedicados a simplificar la experiencia de compartir enlaces en línea. Nuestra pasión por la innovación tecnológica y la eficiencia nos ha llevado a crear una plataforma que te permite acortar y administrar tus enlaces de manera rápida y sencilla.</p>
+                  <span>About Us</span>
+                  <h2>Online Link Shortener That Lets You Earn Money</h2>
+                  <p>
+                     At <strong>AdNinja</strong>, we are dedicated to simplifying the experience of sharing links online. Our passion for technological innovation and efficiency has led us to create a platform that allows you to shorten and manage your links quickly and easily.</p>
                </div>
             </div>
          </div>
@@ -138,9 +139,9 @@
             <div class="col-md-6">
                <div class="contact_box">
                   <div class="titlepage">
-                     <h2>Contactanos</h2>
+                     <h2>Contact Us</h2>
                   </div>
-                  <p>Estamos aquí para ayudarte en todo lo que necesites. Si tienes alguna pregunta, comentario o inquietud, no dudes en ponerte en contacto con nuestro equipo. Estamos disponibles para brindarte asistencia y orientación en cualquier momento. Tu opinión es importante para nosotros y estamos comprometidos a proporcionarte el mejor servicio posible. Puedes comunicarte con nosotros a través del formulario que se te indica a continuación, estaremos encantados de atenderte</p>
+                  <p>We are here to assist you with anything you need. If you have any questions, comments, or concerns, feel free to get in touch with our team. We are available to provide assistance and guidance at any time. Your feedback is important to us, and we are committed to offering you the best possible service. You can reach out to us through the form provided below. We would be delighted to assist you.</p>
                </div>
             </div>
             <div class="col-md-6">
@@ -177,7 +178,7 @@
          <div class="container">
             <div class="row">
                <div class="col-md-12">
-                  <p>© 2019 All Rights Reserved.</p>
+                  <p>© 2023 All Rights Reserved.</p>
                </div>
             </div>
          </div>
