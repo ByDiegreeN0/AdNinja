@@ -38,13 +38,6 @@ class DashboardController extends Controller
     }
 
 
-    // Esta sección ya no es usada
-
-    /* public function links_index(){
-        $LinksData = tbl_links::all();
-        return view('dashboard.links', compact('LinksData'));
-    } */
-
     public function referrals_index()
     {
         return view('dashboard.referrals');

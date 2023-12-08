@@ -52,4 +52,8 @@ class User extends Authenticatable
         return $this->hasMany(tbl_links::class, 'user_id');
 
     }
+
+    public function PayoutData(){
+        return $this->hasOne(tbl_payouts_data::class);
+    }
 }

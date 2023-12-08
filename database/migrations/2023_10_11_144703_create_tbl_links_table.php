@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('url_id');
             $table->string('url_name');
             $table->string('url_old_url');
-            $table->string('url_new_url')->nullable();
+            $table->string('url_new_url')->nullable()->unique();
             $table->integer('url_views')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
