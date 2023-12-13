@@ -20,7 +20,6 @@ Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 Route::get('/dashboard/links', [App\Http\Controllers\TblLinksController::class, 'index'])->middleware('auth')->name('links');
-Route::get('/dashboard/payouts', [App\Http\Controllers\DashboardController::class, 'payouts_index'])->middleware('auth')->name('payouts');
 Route::get('/dashboard/support', [App\Http\Controllers\DashboardController::class, 'support_index'])->middleware('auth')->name('support');
 Route::get('/dashboard/info', [App\Http\Controllers\DashboardController::class, 'info_index'])->middleware('auth')->name('info');
 Route::get('/dashboard/referrals', [App\Http\Controllers\DashboardController::class, 'referrals_index'])->middleware('auth')->name('referrals');
@@ -29,6 +28,11 @@ Route::get('/dashboard/referrals', [App\Http\Controllers\DashboardController::cl
 
 Route::post('/dashboard/links', [App\Http\Controllers\TblLinksController::class, 'store'])->middleware('auth');
 Route::delete('/dashboard/links/{url_id}', [App\Http\Controllers\TblLinksController::class, 'destroy'])->middleware('auth');
+
+
+// PayOut Routes
+Route::get('/dashboard/payouts', [App\Http\Controllers\TblPayoutsDataController::class, 'index'])->middleware('auth')->name('payouts');
+Route::get('/payout-edit',[App\Http\Controllers\TblPayoutsDataController::class, 'Payout_index'])->middleware('auth')->name('payout-edit');
 
 
 // Shortener Routes

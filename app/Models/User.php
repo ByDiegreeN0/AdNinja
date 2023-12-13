@@ -48,6 +48,8 @@ class User extends Authenticatable
         return 'User';
     }
 
+    // Relaciones
+
     public function links() {
         return $this->hasMany(tbl_links::class, 'user_id');
 
@@ -56,4 +58,11 @@ class User extends Authenticatable
     public function PayoutData(){
         return $this->hasOne(tbl_payouts_data::class);
     }
+
+    // Events
+
+
+    protected $dispatchesEvents = [
+        'created' => \App\Events\UserCreated::class,
+    ];
 }

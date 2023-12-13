@@ -1,52 +1,57 @@
 @extends('adminlte::page')
 
-
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Payouts</h1>
+    <h1>Edit Payout Data</h1>
 @stop
 
 @section('content')
-<form>
-    <fieldset disabled>
+    <form>
+
         <div class="form-row">
 
             <div class="form-group col-md-6">
                 <label for="inputEmail4">PayPal Email *</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email" required value="{{ $PayoutData->paydata_email}}">
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Email" required
+                    value="{{ $PayoutData->paydata_email }}">
             </div>
 
             <div class="form-group col-md-3">
                 <label for="inputPassword4">Name & Last Name *</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder="Name" required value="{{ $PayoutData->paydata_user_name}}">
+                <input type="text" class="form-control" id="inputPassword4" placeholder="Name" required
+                    value="{{ $PayoutData->paydata_user_name }}">
             </div>
 
             <div class="form-group col-md-1">
                 <label for="inputPassword4">Prefix</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder="+57..." value="{{ $PayoutData->paydata_phonenumber_prefix}}">
+                <input type="text" class="form-control" id="inputPassword4" placeholder="+57..."
+                    value="{{ $PayoutData->paydata_phonenumber_prefix }}">
             </div>
 
 
             <div class="form-group col-md-2">
                 <label for="inputPassword4">Phone Number</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder="Phone Number" value="{{ $PayoutData->paydata_phonenumber}}">
+                <input type="text" class="form-control" id="inputPassword4" placeholder="Phone Number"
+                    value="{{ $PayoutData->paydata_phonenumber }}">
             </div>
 
         </div>
         <div class="form-group">
             <label for="inputAddress">Address *</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required value="{{ $PayoutData->paydata_address}}">
+            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required
+                value="{{ $PayoutData->paydata_address }}">
         </div>
         <div class="form-group">
             <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" value="{{ $PayoutData->paydata_address_2}}">
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
+                value="{{ $PayoutData->paydata_address_2 }}">
         </div>
         <div class="form-row">
 
             <div class="form-group col-md-6">
                 <label for="inputState">Country *</label>
-                <select id="inputState" class="form-control" required value="{{ $PayoutData->paydata_country}}">
+                <select id="inputState" class="form-control" required value="{{ $PayoutData->paydata_country }}">
                     <option selected>Choose...</option>
                     <option>...</option>
                 </select>
@@ -54,19 +59,19 @@
 
             <div class="form-group col-md-4">
                 <label for="inputCity">City *</label>
-                <input type="text" class="form-control" id="inputCity" required value="{{ $PayoutData->paydata_city}}">
+                <input type="text" class="form-control" id="inputCity" required value="{{ $PayoutData->paydata_city }}">
             </div>
 
             <div class="form-group col-md-2">
                 <label for="inputZip">Zip Code</label>
-                <input id="disabledTextInput" type="text" class="form-control" id="inputZip" value="{{ $PayoutData->paydata_zip}}">
+                <input id="disabledTextInput" type="text" class="form-control" id="inputZip"
+                    value="{{ $PayoutData->paydata_zip }}">
             </div>
         </div>
-    </fieldset>
 
-   <a class="btn btn-success" href="{{ route('payout-edit') }}">Edit Personal Information</a>
-</form>
+        <input type="submit" class="btn btn-success" value="Save Changes">
 
+    </form>
 @stop
 
 @section('css')
@@ -74,7 +79,5 @@
 @stop
 
 @section('js')
-    <script>
-        console.log('Hi!');
-    </script>
+
 @stop

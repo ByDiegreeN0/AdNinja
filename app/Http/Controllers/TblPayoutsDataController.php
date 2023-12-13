@@ -14,9 +14,19 @@ class TblPayoutsDataController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        $PayoutData = $user->PayoutData;
 
 
-        return view('dashboard.payouts');
+        return view('dashboard.payouts', compact('PayoutData'));
+    }
+
+    public function Payout_index(){
+        $user = Auth::user();
+        $PayoutData = $user->PayoutData;
+
+
+        return view('dashboard.payoutform', compact('PayoutData'));
     }
 
     /**

@@ -9,6 +9,8 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
+     // This function is supossed to be called tbl_payouts_data, but if I erase the "s" the program just explotes :D
     public function up(): void
     {
         Schema::create('tbl_payouts_datas', function (Blueprint $table) {
