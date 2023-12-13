@@ -32,8 +32,8 @@ Route::delete('/dashboard/links/{url_id}', [App\Http\Controllers\TblLinksControl
 
 // PayOut Routes
 Route::get('/dashboard/payouts', [App\Http\Controllers\TblPayoutsDataController::class, 'index'])->middleware('auth')->name('payouts');
-Route::get('/payout-edit',[App\Http\Controllers\TblPayoutsDataController::class, 'Payout_index'])->middleware('auth')->name('payout-edit');
-
+Route::get('/dashboard/payout-edit',[App\Http\Controllers\TblPayoutsDataController::class, 'edit'])->middleware('auth')->name('payout-edit');
+Route::patch('/dashboard/payout-edit', [App\Http\Controllers\TblPayoutsDataController::class, 'update'])->middleware('auth')->name('payout-edit.update');
 
 // Shortener Routes
 

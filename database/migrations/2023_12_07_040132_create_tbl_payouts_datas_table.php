@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('paydata_email');
             $table->string('paydata_user_name');
             $table->string('paydata_phonenumber_prefix')->nullable();
-            $table->integer('paydata_phonenumber')->nullable();
+            $table->string('paydata_phonenumber')->nullable();
             $table->string('paydata_address')->nullable();
             $table->string('paydata_address_2')->nullable();
             $table->string('paydata_country')->nullable();

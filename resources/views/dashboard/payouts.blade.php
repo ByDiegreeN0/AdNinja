@@ -46,8 +46,8 @@
 
             <div class="form-group col-md-6">
                 <label for="inputState">Country *</label>
-                <select id="inputState" class="form-control" required value="{{ $PayoutData->paydata_country}}">
-                    <option selected>Choose...</option>
+                <select id="inputState" class="form-control" required>
+                    <option selected>{{ $PayoutData->paydata_country}}</option>
                     <option>...</option>
                 </select>
             </div>
