@@ -13,11 +13,8 @@ return new class extends Migration
     {
         Schema::create('tbl_user_referral_links', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->String('user_referral_link');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

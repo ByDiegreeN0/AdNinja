@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_monthly_link_views', function (Blueprint $table) {
+        Schema::create('tbl_payout_logs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('url_id');
-            $table->integer('monthly_views')->default(0);
-            $table->year('year');
-            $table->unsignedTinyInteger('month');
+            $table->unsignedBigInteger('paydata_id');
+            $table->datetime('payout_log_requested_at');
+            $table->datetime('payout_log_done_at');
             $table->timestamps();
 
-            $table->foreign('url_id')->references('url_id')->on('tbl_links')->onDelete('cascade');
+            $table->foreign('paydata_id')->references('paydata_id')->on('tbl_payouts_datas')->onDelete('cascade');
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_monthly_link_views');
+        Schema::dropIfExists('tbl_payout_logs');
     }
 };

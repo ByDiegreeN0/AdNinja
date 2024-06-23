@@ -11,6 +11,6 @@ class tbl_user_referral_link extends Model
 
 
     public function user(){
-        $this->belongsTo(User::class);
+       return $this->belongsTo(User::class);
     }
 }

@@ -59,6 +59,11 @@ class User extends Authenticatable
         return $this->hasOne(tbl_payouts_data::class);
     }
 
+    public function referralLink(){
+        return $this->hasOne(tbl_user_referral_link::class);
+    }
+
+
     // Events
 
 

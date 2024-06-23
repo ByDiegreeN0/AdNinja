@@ -17,4 +17,8 @@ class tbl_payouts_data extends Model
     public function users(){
         return $this->belongsTo(user::class);
     }
+
+    public function payoutLog(){
+        return $this->hasMany(tbl_payout_log::class);
+    }
 }

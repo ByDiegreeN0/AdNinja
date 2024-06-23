@@ -19,8 +19,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedBigInteger('referral_link_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('referral_link_id')->references('id')->on('tbl_user_referral_links')->onDelete('cascade');
         });
     }
 
